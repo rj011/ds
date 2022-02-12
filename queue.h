@@ -39,6 +39,13 @@ void display (struct Queue q)
         printf("%d ",q.Q[i]);
     }
 }
+bool isEmpty(struct Queue q)
+{
+    if(q.rear==q.front || (q.rear==-1 && q.front==-1))
+       return true;
+       else
+        return false;
+}
 
 
 #endif // QUEUE_H_INCLUDED
