@@ -1,36 +1,26 @@
 #include <iostream>
-#include "queue"
+#include<vector>
 using namespace std;
-
-void bfs(int a[][7], int start, int n)
+void dfs(int a[][7],int start,int n)
 {
+    static int visited[7]={0};
     int i=start;
-    struct Queue q;
-    int visited[7] ={0};
-    printf("%d",i);
-    enqueue(&q,i);
-    visited[i]=1;
-    while(!isEmpty())
+    if(visited[i]==0)
     {
-        i=dequeue(&q);
-        for(int j=1;j<=n;j++)
+        cout<<i<<flush;
+        visited[i]=1;
+        for(j=1;j<=n;j++)
         {
             if(a[i][j]==1 && visited[j]==0)
             {
-                printf("%d",j);
-                enquque(&q,j);
-                visited[j]=1;
-
+                dfs(a,j,n);
             }
         }
-
     }
 
 }
-
 int main()
 {
-    int a[7][7] = {{0,0,0,0,0,0,0},{0,0,1,1,0,0,0},{0,1,0,0,1,0,0},{0,1,0,0,1,0,0},{0,0,1,1,0,0,0},{0,0,0,0,0,0,0},{0,0,0,0,0,0,0}};
-    bfs(a,1,7);
+
     return 0;
 }
